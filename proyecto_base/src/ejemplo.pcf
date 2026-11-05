@@ -1,0 +1,56 @@
+# Especificación de conexión de pines.
+# La especificación de pines para la entidad E debe residir en el archivo E.pcf
+# En esta explicación <puerto> es un puerto de un bit o un bit dentro de un
+# puerto multibit en la entidad y <nr.pin> es un número de pin de la FPGA
+# (Ver al final como se conectan los pines de la ICE40H4K a los terminales de la
+# placa edu-ciaa-fpga)
+#
+# Sintaxis:
+#
+# set_io [-pullup yes|no] <puerto> <nr.pin>
+#
+# > ejemplo: puerto A es conectado a pin 31 de la FPGA
+# set_io A 31
+# > ejemplo: pin 4 del puerto multibit B es conectado a pin 32 de la FPGA
+# set_io B[4] 32
+#
+#
+# Pines EDU-CIAA-FPGA
+# Reloj 12 MHz : 94
+# 
+# UART Virtual
+#     Rx  Tx RTS CTS DTR DSR DCD
+#     55  56  60  61  62  63  64 
+#
+# LED[D3:D6]
+#      4   3   2   1
+#
+# Pulsadores[S1:S4]
+#     31  32  33  34
+#
+# J2 GND GND 142 141 138 136 134 129 125 122 *
+#    144 143  NC GND 139 137 135 130 128 124
+#
+# J3  80  89  84  95  97  99 105 107 *
+#     79  81  83  85  96  98 104 106
+#
+# J4  * NC  5V  37 3V3  5V GND GND  5V 
+#
+# J5 3V3 GND  11  12  15  16 *
+#    3V3 GND   7   8   9  10
+#
+# J6 3V3 GND  21  22  23  24 *
+#    3V3 GND  17  18  19  20
+#
+# * : pin 1 del conector
+#
+# NOTA: 3V3, 5V son líneas de alimentación y GND es la masa. Los números
+# naturales corresponden a números de pin en la FPGA.
+# Ejemplo: el primer contacto de J3 está conectado al pin 107 de la FPGA. El
+# pulsador S1 está conectado al pin 31. El LED D6 está conectado al pin 1.
+# El oscilador de 12 MHz está conectado al pin 94.
+
+
+set_io A 31
+set_io B 32
+set_io y 4
