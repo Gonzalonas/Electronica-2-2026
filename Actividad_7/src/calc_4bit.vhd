@@ -10,7 +10,7 @@ entity calc_4bit is
     );
 end entity calc_4bit;
 
-architecture rtl of calc_4bit is
+architecture arch of calc_4bit is
     -- Registros de la calculadora
     signal reg_a : std_logic_vector(3 downto 0) := (others => '0');
     signal reg_b : std_logic_vector(3 downto 0) := (others => '0');
@@ -114,4 +114,4 @@ begin
     -- display(7) = punto decimal (salida Z de la ALU), display(6 downto 0) = g..a
     display <= alu_z & seg_7;
 
-end architecture rtl;
+end architecture arch;
